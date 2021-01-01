@@ -26,18 +26,24 @@ before_install:
 matrix:
   allow_failures:
     - os: linux
+      arch: s390x
       env: DB=mariadb:10.2 PACKET=8M MAXSCALE_VERSION=2.1.8
     - os: linux
+      arch: s390x
       env: DB=build
     - os: linux
+      arch: s390x
       env: DB=mysql:5.5
     - os: linux
+      arch: s390x
       env: DB=mysql:5.6
     - os: linux
+      arch: s390x
       env: DB=mysql:5.7
     - os: osx
       env: DB=mariadb:10.5
     - os: linux
+      arch: s390x
       env: DB=mariadb:10.1
   include:
     - os: linux
