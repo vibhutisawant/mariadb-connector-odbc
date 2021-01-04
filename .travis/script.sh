@@ -67,8 +67,12 @@ export TEST_SCHEMA=odbc_test
 export TEST_UID=bob
 export TEST_PASSWORD= 
 
+
+if [[ $(arch) == "s390x" ]]; then
+cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_OPENSSL=ON -DWITH_SSL=OPENSSL  -DODBC_LIB_DIR=/usr/lib/s390x-linux-gnu/
+else
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_OPENSSL=ON -DWITH_SSL=OPENSSL
-#cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_OPENSSL=ON -DWITH_SSL=OPENSSL
+fi
 # In Travis we are interested in tests with latest C/C version, while for release we must use only latest release tag
 #git submodule update --remote
 cmake --build . --config RelWithDebInfo 
