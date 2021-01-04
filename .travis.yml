@@ -1,9 +1,6 @@
 sudo: true
 language: c
 services: docker
-arch:
-  - amd64
-  - s390x
 addons:
   hosts:
     - mariadb.example.com
@@ -79,7 +76,7 @@ matrix:
       env: DB=mysql:5.7
 
 script:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$DB" = "build" ] ; then .travis/build/build.sh; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_ARCH" = "s390x" ] && [ "$DB" = "build" ] ; then .travis/build/build.sh; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$DB" = "build" ] ; then docker build -t build:latest --label build .travis/build/; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ] ; then .travis/script.sh; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then .travis/osx.sh; fi
