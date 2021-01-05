@@ -586,7 +586,7 @@ SQLRETURN MADB_DbcConnectDB(MADB_Dbc *Connection,
     MADB_Dsn *Dsn)
 {
   char StmtStr[128];
-  unsigned ReportDataTruncation= 1;
+  my_bool ReportDataTruncation= 1;
   unsigned int i;
   unsigned long client_flags= 0L;
   my_bool my_reconnect= 1;

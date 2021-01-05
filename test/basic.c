@@ -71,7 +71,7 @@ ODBC_TEST(simple_test)
 {
   SQLRETURN rc= SQL_SUCCESS;
 
-  SQLINTEGER value=3;
+  SQLSMALLINT value=3;
   SQLWCHAR Buffer[20];
 
   char buffer[128];
